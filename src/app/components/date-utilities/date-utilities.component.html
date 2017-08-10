@@ -1,0 +1,23 @@
+<form class="form-inline" #dateForm="ngForm" >
+	<div class="form-group">
+    <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" id="dp1" name="dp1" [(ngModel)]="StartTime"  ngbDatepicker #d1="ngbDatepicker"  [maxDate]="EndTime" required>
+        <div class="input-group-addon" (click)="d1.toggle()" >
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+        </div>
+        
+    </div>
+
+    <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" id="dp2" name="dp2" [(ngModel)]="EndTime"  ngbDatepicker #d2="ngbDatepicker" [minDate]="StartTime" #endDate required>
+        <div class="input-group-addon" (click)="d2.toggle()" >
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+        </div>
+    </div>
+    <button (click)="myEvent($event)" [disabled]="!dateForm.form.valid">Calculate</button>
+</div>
+</form>
+
+<div *ngIf="display;">
+    The Difference Between The Two Dates is :  <b>{{diffDays}}</b> {{(diffDays==1)? 'Day': 'Days'}}
+</div>
