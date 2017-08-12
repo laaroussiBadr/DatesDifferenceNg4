@@ -14,7 +14,7 @@ export class DateUtilitiesComponent{
 	diffDays:number;
 	display:boolean = false;
 
-    myEvent(event) {
+    onCalculateDateDifference() {
 	    	var EndDate = new Date(this.EndTime.year,this.EndTime.month,this.EndTime.day);
 			var StartDate = new Date(this.StartTime.year,this.StartTime.month,this.StartTime.day);
 	    	var timeDiff = EndDate.getTime() - StartDate.getTime();
